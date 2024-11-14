@@ -1,0 +1,58 @@
+step1 
+instalar las librerias con este comando
+    
+    pip install -r requirements.txt
+
+ese comando instala todas las librerias en batch
+
+
+#___________________________________________________________________________
+step2
+ejecutar este comando para levantar el servicio
+
+    flask --app main run
+
+#___________________________________________________________________________
+step3 
+para probar que la api se levanto correctamente usar un GET 
+a esta ruta 
+
+    http://127.0.0.1:5000/test
+
+(cambiar el local host si es necesario, aunque por default deberia ser ese)
+este deberia ser la respuesta del test
+
+{
+    "message": "this is a test"
+}
+
+
+
+#___________________________________________________________________________
+step4 
+para probar que la la aplicacion reciba imagenes (aun no hace predict aqui) a esta ruta con el nombre de "image"
+
+    http://127.0.0.1:5000/inspect
+
+esta ruta solo sirve para testear que estas enviando bien la imagen, nada mas. deberia devolver informacion de la imagen
+
+{
+    "channels": 3,
+    "format": "image/jpeg",
+    "height": 640,
+    "width": 640
+}
+
+
+#___________________________________________________________________________
+step5
+aqui ya hacemos predict de la imagen, tiene que tener el nombre de "image"
+
+    http://127.0.0.1:5000/predict
+
+debe devolver la prediccion
+
+{
+    "confidence": 100.0,
+    "predicted_label": "100"
+}
